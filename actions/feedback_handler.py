@@ -3,6 +3,7 @@ Module to handle user feedback in a more robust way,
 fixing the common errors with the feedback buttons.
 """
 from typing import Any, Dict, List, Text
+
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction, SlotSet
