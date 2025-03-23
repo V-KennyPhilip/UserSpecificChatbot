@@ -5,13 +5,13 @@ in the first terminal (to create a virtual env ->
                               to install the required dependencies -> 
                                   to train the rasa model ->
                                       and finally to start the rasa server):->
-    py -3.10 -m venv myenv : create a virtual env
-    myenv\Scripts\activate : activate the virtual env
-    python --version
-    pip install rasa rasa-sdk requests : dependencies
-    rasa train : training
-    rasa run actions : start server
+    1. py -3.10 -m venv myenv : create a virtual env
+    2. myenv\Scripts\activate : activate the virtual env
+    3. python --version
+    4. pip install rasa rasa-sdk requests : dependencies
+    5. rasa train : training
+    6. rasa run actions : start server
 
 in the second terminal(to run the chatbot)
-    myenv\Scripts\activate : activate the virtual env
-    rasa shell : start the chatbot
+    1. myenv\Scripts\activate : activate the virtual env
+    2. rasa shell : start the chatbot
