@@ -1,0 +1,11 @@
+{
+  "rule_only_slots": [
+    "requested_form_info"
+  ],
+  "rule_only_loops": [
+    "add_bank_form",
+    "update_bank_form",
+    "update_salary_form",
+    "update_contact_form"
+  ]
+}

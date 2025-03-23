@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-address",
+      "2": "I-address",
+      "3": "L-address",
+      "4": "U-address",
+      "5": "B-bank_id",
+      "6": "I-bank_id",
+      "7": "L-bank_id",
+      "8": "U-bank_id",
+      "9": "B-loan_id",
+      "10": "I-loan_id",
+      "11": "L-loan_id",
+      "12": "U-loan_id",
+      "13": "B-phone_number",
+      "14": "I-phone_number",
+      "15": "L-phone_number",
+      "16": "U-phone_number",
+      "17": "B-salary_amount",
+      "18": "I-salary_amount",
+      "19": "L-salary_amount",
+      "20": "U-salary_amount",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-address": 1,
+      "I-address": 2,
+      "L-address": 3,
+      "U-address": 4,
+      "B-bank_id": 5,
+      "I-bank_id": 6,
+      "L-bank_id": 7,
+      "U-bank_id": 8,
+      "B-loan_id": 9,
+      "I-loan_id": 10,
+      "L-loan_id": 11,
+      "U-loan_id": 12,
+      "B-phone_number": 13,
+      "I-phone_number": 14,
+      "L-phone_number": 15,
+      "U-phone_number": 16,
+      "B-salary_amount": 17,
+      "I-salary_amount": 18,
+      "L-salary_amount": 19,
+      "U-salary_amount": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

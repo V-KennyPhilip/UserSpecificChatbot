@@ -1,0 +1,342 @@
+# version: "3.1"
+
+# stories:
+# - story: greet and show options
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# # Removed the conflicting story "show main menu via action"
+# # We'll let the rule handle this intent instead
+
+# - story: goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+#   - action: action_reset_slots
+#   - action: action_log_mo_engage
+
+# - story: thank user
+#   steps:
+#   - intent: thank
+#   - action: utter_thank
+#   - action: action_log_mo_engage
+
+# - story: provide help
+#   steps:
+#   - intent: help
+#   - action: utter_help
+#   - action: action_log_mo_engage
+
+# - story: handle out of scope
+#   steps:
+#   - intent: out_of_scope
+#   - action: action_reset_all_forms
+#   - action: utter_out_of_scope
+#   - action: action_log_mo_engage
+
+# # Account Information Flows
+# - story: navigate to account information
+#   steps:
+#   - intent: navigate_account_info
+#   - action: utter_account_info_options
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# - story: view profile details
+#   steps:
+#   - intent: ACC_PROFILE
+#   - action: action_fetch_profile
+#   - action: action_utter_feedback
+#   - action: action_log_mo_engage
+
+# - story: view KYC details
+#   steps:
+#   - intent: ACC_KYC
+#   - action: action_fetch_kyc
+#   - action: action_utter_feedback
+#   - action: action_log_mo_engage
+
+# - story: view CIBIL score
+#   steps:
+#   - intent: ACC_CIBIL
+#   - action: action_fetch_cibil
+#   - action: action_utter_feedback
+#   - action: action_log_mo_engage
+
+# - story: navigate to salary options
+#   steps:
+#   - intent: navigate_salary_options
+#   - action: utter_salary_options
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# - story: view salary
+#   steps:
+#   - intent: ACC_VIEW_SALARY
+#   - action: action_view_salary
+#   - action: action_utter_feedback
+#   - action: action_log_mo_engage
+
+# - story: navigate to update salary
+#   steps:
+#   - intent: navigate_update_salary
+#   - action: utter_ask_salary_amount
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# - story: navigate to contact options
+#   steps:
+#   - intent: navigate_contact_options
+#   - action: utter_ask_contact_details
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# # Loan Portfolio Flows
+# - story: navigate to loan portfolio
+#   steps:
+#   - intent: navigate_loan_portfolio
+#   - action: utter_loan_portfolio_options
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# - story: view active loans
+#   steps:
+#   - intent: LOAN_ACTIVE_NUMBER
+#   - action: action_fetch_active_loans
+#   - action: utter_active_loan_options
+#   - action: action_log_mo_engage
+
+# - story: view active loan details
+#   steps:
+#   - intent: LOAN_ACTIVE_DETAILS
+#   - action: action_fetch_active_loan_details
+#   - action: action_utter_feedback
+#   - action: action_log_mo_engage
+
+# - story: view EMI details
+#   steps:
+#   - intent: LOAN_EMI_DETAILS
+#   - action: action_fetch_emi_details
+#   - action: action_utter_feedback
+#   - action: action_log_mo_engage
+
+# - story: view loan application status
+#   steps:
+#   - intent: LOAN_STATUS
+#   - action: action_fetch_loan_status
+#   - action: action_utter_feedback
+#   - action: action_log_mo_engage
+
+# # Bank Account Management Flows
+# - story: navigate to bank management
+#   steps:
+#   - intent: navigate_bank_management
+#   - action: utter_bank_management_options
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# - story: view linked bank accounts
+#   steps:
+#   - intent: BANK_LINKED_NUMBER
+#   - action: action_fetch_linked_banks
+#   - action: utter_linked_bank_options
+#   - action: action_log_mo_engage
+
+# - story: view bank details
+#   steps:
+#   - intent: BANK_LINKED_DETAILS
+#   - action: action_fetch_bank_details
+#   - action: action_utter_feedback
+#   - action: action_log_mo_engage
+
+# - story: navigate to add bank
+#   steps:
+#   - intent: navigate_bank_add
+#   - action: utter_ask_bank_add_details
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# - story: navigate to update bank
+#   steps:
+#   - intent: navigate_bank_update
+#   - action: utter_ask_bank_update_details
+#   - action: action_set_context
+#   - action: action_log_mo_engage
+
+# stories.yml
+version: "3.1"
+
+stories:
+# Comment out all login-related stories
+# - story: greet and show login option
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: login
+#   - action: login_form
+#   - active_loop: login_form
+
+# - story: direct login flow
+#   steps:
+#   - intent: login
+#   - action: login_form
+#   - active_loop: login_form
+
+# Add new greeting story that shows main menu directly
+- story: greet and show main menu
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_show_main_menu
+
+# Navigation stories
+- story: navigate to account information 
+  steps:
+  - intent: navigate_account_info
+  - action: action_check_authenticated
+  - action: utter_account_info_options
+  - action: action_set_context
+
+- story: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_reset_slots
+
+- story: thank user
+  steps:
+  - intent: thank
+  - action: utter_thank
+
+- story: provide help
+  steps:
+  - intent: help
+  - action: utter_help
+
+- story: handle out of scope
+  steps:
+  - intent: out_of_scope
+  - action: action_reset_all_forms
+  - action: utter_out_of_scope
+
+# Account Information Flows
+- story: view profile details after authentication
+  steps:
+  - intent: ACC_PROFILE
+  - action: action_check_authenticated
+  - action: action_fetch_profile
+
+- story: view KYC details after authentication
+  steps:
+  - intent: ACC_KYC
+  - action: action_check_authenticated
+  - action: action_fetch_kyc
+
+- story: view CIBIL score after authentication
+  steps:
+  - intent: ACC_CIBIL
+  - action: action_check_authenticated
+  - action: action_fetch_cibil
+
+- story: navigate to salary options after authentication
+  steps:
+  - intent: navigate_salary_options
+  - action: action_check_authenticated
+  - action: utter_salary_options
+  # Removed action_set_context to match rule
+
+- story: view salary after authentication
+  steps:
+  - intent: ACC_VIEW_SALARY
+  - action: action_check_authenticated
+  - action: action_view_salary
+
+- story: navigate to update salary after authentication
+  steps:
+  - intent: navigate_update_salary
+  - action: action_check_authenticated
+  - action: utter_ask_salary_amount
+  # Removed action_set_context to match rule
+
+- story: navigate to contact options after authentication
+  steps:
+  - intent: navigate_contact_options
+  - action: action_check_authenticated
+  - action: utter_ask_contact_details
+  # Removed action_set_context to match rule
+
+# Loan Portfolio Flows
+- story: navigate to loan portfolio after authentication
+  steps:
+  - intent: navigate_loan_portfolio
+  - action: action_check_authenticated
+  - action: utter_loan_portfolio_options
+  - action: action_set_context
+
+- story: view active loans after authentication
+  steps:
+  - intent: LOAN_ACTIVE_NUMBER
+  - action: action_check_authenticated
+  - action: action_fetch_active_loans
+  - action: utter_active_loan_options
+
+- story: view active loan details after authentication
+  steps:
+  - intent: LOAN_ACTIVE_DETAILS
+  - action: action_check_authenticated
+  - action: action_fetch_active_loan_details
+
+- story: view EMI details after authentication
+  steps:
+  - intent: LOAN_EMI_DETAILS
+  - action: action_check_authenticated
+  - action: action_fetch_emi_details
+
+- story: view loan application status after authentication
+  steps:
+  - intent: LOAN_STATUS
+  - action: action_check_authenticated
+  - action: action_fetch_loan_status
+
+# Bank Account Management Flows
+- story: navigate to bank management after authentication
+  steps:
+  - intent: navigate_bank_management
+  - action: action_check_authenticated
+  - action: utter_bank_management_options
+  - action: action_set_context
+
+- story: view linked bank accounts after authentication
+  steps:
+  - intent: BANK_LINKED_NUMBER
+  - action: action_check_authenticated
+  - action: action_fetch_linked_banks
+  - action: utter_linked_bank_options
+
+- story: view bank details after authentication
+  steps:
+  - intent: BANK_LINKED_DETAILS
+  - action: action_check_authenticated
+  - action: action_fetch_bank_details
+
+- story: navigate to add bank after authentication
+  steps:
+  - intent: navigate_bank_add
+  - action: action_check_authenticated
+  - action: utter_ask_bank_add_details
+  # Removed action_set_context to match rule
+
+- story: navigate to update bank after authentication
+  steps:
+  - intent: navigate_bank_update
+  - action: action_check_authenticated
+  - action: utter_ask_bank_update_details
+  # Removed action_set_context to match rule
+
+- story: show main menu
+  steps:
+  - intent: show_main_menu
+  - action: action_show_main_menu

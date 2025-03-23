@@ -1,0 +1,466 @@
+# version: "3.1"
+
+# rules:
+# - rule: Always trigger fallback when out of scope
+#   steps:
+#   - intent: out_of_scope
+#   - action: action_reset_all_forms  # First reset any forms
+#   - action: utter_out_of_scope      # Then show out of scope message
+#   - action: action_log_mo_engage    # Log the interaction
+
+# - rule: Implementation of the Two-Stage-Fallback
+#   steps:
+#   - intent: nlu_fallback
+#   - action: utter_fallback
+#   - action: action_log_mo_engage
+
+# - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+#   steps:
+#   - intent: nlu_fallback
+#   - action: utter_fallback
+#   - action: action_log_mo_engage
+
+# - rule: Show help when user asks for help
+#   steps:
+#   - intent: help
+#   - action: utter_help
+#   - action: action_log_mo_engage
+
+# - rule: Say goodbye when user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+#   - action: action_reset_slots
+#   - action: action_log_mo_engage
+
+# - rule: Respond to thank you
+#   steps:
+#   - intent: thank
+#   - action: utter_thank
+#   - action: action_log_mo_engage
+
+# - rule: Activate update salary form
+#   steps:
+#   - intent: ACC_UPDATE_SALARY
+#   - action: update_salary_form
+#   - active_loop: update_salary_form
+#   - slot_was_set:
+#     - requested_form_info: null
+
+# - rule: Submit update salary form
+#   condition:
+#   - active_loop: update_salary_form
+#   steps:
+#   - action: update_salary_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_form_info: salary_updated
+#   - action: action_update_salary
+#   - action: action_utter_feedback  # Use custom action instead of template
+#   - action: action_log_mo_engage
+
+# - rule: Activate update contact form
+#   steps:
+#   - intent: ACC_CONTACT
+#   - action: update_contact_form
+#   - active_loop: update_contact_form
+#   - slot_was_set:
+#     - requested_form_info: null
+
+# - rule: Submit update contact form
+#   condition:
+#   - active_loop: update_contact_form
+#   steps:
+#   - action: update_contact_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_form_info: contact_updated
+#   - action: action_update_contact
+#   - action: action_utter_feedback  # Use custom action instead of template
+#   - action: action_log_mo_engage
+
+# - rule: Handle bank queries
+#   steps:
+#   - intent: bank_query
+#   - action: action_handle_bank_query
+
+# - rule: Handle affirm feedback
+#   steps:
+#   - intent: affirm
+#   - action: action_process_feedback
+#   # The action_process_feedback will handle showing the main menu
+
+# - rule: Handle deny feedback
+#   steps:
+#   - intent: deny
+#   - action: action_process_feedback
+#   # The action_process_feedback will handle showing help if needed
+
+# - rule: Show main menu when explicitly requested
+#   steps:
+#   - intent: show_main_menu
+#   - action: action_show_main_menu
+
+# - rule: Activate add bank form
+#   steps:
+#   - intent: BANK_ADD
+#   - action: add_bank_form
+#   - active_loop: add_bank_form
+#   - slot_was_set:
+#     - requested_form_info: null
+
+# - rule: Submit add bank form
+#   condition:
+#   - active_loop: add_bank_form
+#   steps:
+#   - action: add_bank_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_form_info: bank_added
+#   - action: action_add_bank
+#   - action: action_utter_feedback  # Use custom action instead of template
+#   - action: action_log_mo_engage
+
+# - rule: Activate update bank form
+#   steps:
+#   - intent: BANK_UPDATE
+#   - action: update_bank_form
+#   - active_loop: update_bank_form
+#   - slot_was_set:
+#     - requested_form_info: null
+
+# - rule: Submit update bank form
+#   condition:
+#   - active_loop: update_bank_form
+#   steps:
+#   - action: update_bank_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_form_info: bank_updated
+#   - action: action_update_bank
+#   - action: action_utter_feedback  # Use custom action instead of template
+#   - action: action_log_mo_engage
+
+# rules.yml
+version: "3.1"
+
+rules:
+# New rule to replace login-related greetings
+- rule: Greet and show main menu
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_show_main_menu
+  - action: action_listen
+
+# All login-related rules are commented out
+# - rule: Handle login intent directly
+#   steps:
+#   - intent: login
+#   - action: action_direct_login
+#   - action: action_listen
+
+# - rule: Greet user and handle login
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: login
+#   - action: action_direct_login
+#   - action: action_listen
+  
+# - rule: Greet and ask for login
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: action_listen
+
+# - rule: Direct login request
+#   steps:
+#   - intent: login
+#   - action: login_form
+#   - active_loop: login_form
+#   - slot_was_set:
+#     - requested_form_info: null
+#   - action: action_listen
+
+# - rule: Submit login form
+#   condition:
+#   - active_loop: login_form
+#   steps:
+#   - action: login_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_form_info: login
+#   - action: action_login
+#   - action: action_show_main_menu
+#   - action: action_listen
+
+# Core navigation rules
+- rule: Check authentication before accessing account functions
+  steps:
+  - intent: navigate_account_info
+  - action: action_check_authenticated
+  - action: utter_account_info_options
+  - action: action_set_context
+  - action: action_listen
+
+- rule: Check authentication before accessing loan functions
+  steps:
+  - intent: navigate_loan_portfolio
+  - action: action_check_authenticated
+  - action: utter_loan_portfolio_options
+  - action: action_set_context
+  - action: action_listen
+
+- rule: Check authentication before accessing bank functions
+  steps:
+  - intent: navigate_bank_management
+  - action: action_check_authenticated
+  - action: utter_bank_management_options
+  - action: action_set_context
+  - action: action_listen
+
+# Default conversation rules
+- rule: Always trigger fallback when out of scope
+  steps:
+  - intent: out_of_scope
+  - action: action_reset_all_forms
+  - action: utter_out_of_scope
+  - action: action_listen
+
+- rule: Implementation of the Two-Stage-Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_fallback
+  - action: action_listen
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_fallback
+  - action: action_listen
+
+- rule: Show help when user asks for help
+  steps:
+  - intent: help
+  - action: utter_help
+  - action: action_listen
+
+- rule: Say goodbye when user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_reset_slots
+  - action: action_listen
+
+- rule: Respond to thank you
+  steps:
+  - intent: thank
+  - action: utter_thank
+  - action: action_listen
+
+- rule: Show main menu when explicitly requested
+  steps:
+  - intent: show_main_menu
+  - action: action_show_main_menu
+  - action: action_listen
+
+# Form handling rules
+- rule: Activate update salary form
+  steps:
+  - intent: ACC_UPDATE_SALARY
+  - action: action_check_authenticated
+  - action: update_salary_form
+  - active_loop: update_salary_form
+  - slot_was_set:
+    - requested_form_info: null
+  - action: action_listen
+
+- rule: Submit update salary form
+  condition:
+  - active_loop: update_salary_form
+  steps:
+  - action: update_salary_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_form_info: salary_updated
+  - action: action_update_salary
+  - action: action_listen
+
+- rule: Activate update contact form
+  steps:
+  - intent: ACC_CONTACT
+  - action: action_check_authenticated
+  - action: update_contact_form
+  - active_loop: update_contact_form
+  - slot_was_set:
+    - requested_form_info: null
+  - action: action_listen
+
+- rule: Submit update contact form
+  condition:
+  - active_loop: update_contact_form
+  steps:
+  - action: update_contact_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_form_info: contact_updated
+  - action: action_update_contact
+  - action: action_listen
+
+- rule: Handle bank queries
+  steps:
+  - intent: bank_query
+  - action: action_check_authenticated
+  - action: action_handle_bank_query
+  - action: action_listen
+
+- rule: Activate add bank form
+  steps:
+  - intent: BANK_ADD
+  - action: action_check_authenticated
+  - action: add_bank_form
+  - active_loop: add_bank_form
+  - slot_was_set:
+    - requested_form_info: null
+  - action: action_listen
+
+- rule: Submit add bank form
+  condition:
+  - active_loop: add_bank_form
+  steps:
+  - action: add_bank_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_form_info: bank_added
+  - action: action_add_bank
+  - action: action_listen
+
+- rule: Activate update bank form
+  steps:
+  - intent: BANK_UPDATE
+  - action: action_check_authenticated
+  - action: update_bank_form
+  - active_loop: update_bank_form
+  - slot_was_set:
+    - requested_form_info: null
+  - action: action_listen
+
+- rule: Submit update bank form
+  condition:
+  - active_loop: update_bank_form
+  steps:
+  - action: update_bank_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_form_info: bank_updated
+  - action: action_update_bank
+  - action: action_listen
+
+# Authentication-protected actions
+- rule: Check authentication for profile view
+  steps:
+  - intent: ACC_PROFILE
+  - action: action_check_authenticated
+  - action: action_fetch_profile
+  - action: action_listen
+
+- rule: Check authentication for KYC view
+  steps:
+  - intent: ACC_KYC
+  - action: action_check_authenticated
+  - action: action_fetch_kyc
+  - action: action_listen
+
+- rule: Check authentication for CIBIL view
+  steps:
+  - intent: ACC_CIBIL
+  - action: action_check_authenticated
+  - action: action_fetch_cibil
+  - action: action_listen
+
+- rule: Check authentication for salary view
+  steps:
+  - intent: ACC_VIEW_SALARY
+  - action: action_check_authenticated
+  - action: action_view_salary
+  - action: action_listen
+
+- rule: Check authentication for active loans
+  steps:
+  - intent: LOAN_ACTIVE_NUMBER
+  - action: action_check_authenticated
+  - action: action_fetch_active_loans
+  - action: utter_active_loan_options
+  - action: action_listen
+
+- rule: Check authentication for active loan details
+  steps:
+  - intent: LOAN_ACTIVE_DETAILS
+  - action: action_check_authenticated
+  - action: action_fetch_active_loan_details
+  - action: action_listen
+
+- rule: Check authentication for EMI details
+  steps:
+  - intent: LOAN_EMI_DETAILS
+  - action: action_check_authenticated
+  - action: action_fetch_emi_details
+  - action: action_listen
+
+- rule: Check authentication for loan status
+  steps:
+  - intent: LOAN_STATUS
+  - action: action_check_authenticated
+  - action: action_fetch_loan_status
+  - action: action_listen
+
+- rule: Check authentication for linked banks
+  steps:
+  - intent: BANK_LINKED_NUMBER
+  - action: action_check_authenticated
+  - action: action_fetch_linked_banks
+  - action: utter_linked_bank_options
+  - action: action_listen
+
+- rule: Check authentication for bank details
+  steps:
+  - intent: BANK_LINKED_DETAILS
+  - action: action_check_authenticated
+  - action: action_fetch_bank_details
+  - action: action_listen
+
+- rule: Check authentication for navigate salary options
+  steps:
+  - intent: navigate_salary_options
+  - action: action_check_authenticated
+  - action: utter_salary_options
+  - action: action_listen
+
+- rule: Check authentication for navigate update salary
+  steps:
+  - intent: navigate_update_salary
+  - action: action_check_authenticated
+  - action: utter_ask_salary_amount
+  - action: action_listen
+
+- rule: Check authentication for navigate contact options
+  steps:
+  - intent: navigate_contact_options
+  - action: action_check_authenticated
+  - action: utter_ask_contact_details
+  - action: action_listen
+
+- rule: Check authentication for navigate bank add
+  steps:
+  - intent: navigate_bank_add
+  - action: action_check_authenticated
+  - action: utter_ask_bank_add_details
+  - action: action_listen
+
+- rule: Check authentication for navigate bank update
+  steps:
+  - intent: navigate_bank_update
+  - action: action_check_authenticated
+  - action: utter_ask_bank_update_details
+  - action: action_listen

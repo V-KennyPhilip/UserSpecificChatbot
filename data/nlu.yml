@@ -1,0 +1,862 @@
+#nlu.yml
+version: "3.1"
+
+nlu:
+- intent: login
+  examples: |
+    - login
+    - let me login
+    - I want to log in
+    - sign in
+    - I need to login
+    - login to my account
+    - sign in to my account
+    - I'd like to access my account
+    - can I login
+    - I want to access my account
+    - let me sign in
+    - I need to authenticate
+    - authenticate me
+    - let me in
+    - I need to log in first
+    - I want to access the system
+    - login with my credentials
+    - I'd like to sign in
+    - let me sign in with my email
+    - login using my email and password
+    - my email is [user@example.com](email) and password is [password123](password)
+    - my email is [johndoe@gmail.com](email)
+    - my password is [secure123](password)
+    - email [user@domain.com](email)
+    - password is [Pass123](password)
+    - my password is [User@123](password)
+    - password [Admin#2023](password)
+    - [SecureP@ss123](password) is my password
+    - use [P@ssw0rd!](password) as my password
+    - my credentials are [user@example.com](email) and [UserP@ss2023](password)
+    - [john.doe@domain.com](email) with password [J0hn@D0e](password)
+    - login with [test@test.com](email) password [T3st@1234](password)
+    - email [admin@site.com](email) pass [Adm!n2023](password)
+    - [user123](password)
+    - [pass@word](password)
+    - [securepass123](password)
+    - [123456789](password)
+    - [UPPERCASE123](password)
+    - [Mixed@Case123](password)
+    - [with spaces and $ymb0ls!](password)
+    - [very-long-password-with-hyphens](password)
+    - my email john.doe@example.com
+    - my email is john.doe@example.com and password is John@pwd
+    - login with email john.doe@example.com and password John@pwd
+    - john.doe@example.com with password John@pwd
+    - my credentials are john.doe@example.com and John@pwd
+    - use john.doe@example.com and John@pwd
+    - email john.doe@example.com password John@pwd
+    - my email john.doe@example.com my password John@pwd
+    - john.doe@example.com John@pwd
+    - email: john.doe@example.com, password: John@pwd
+    - john.doe@example.com is my email and John@pwd is my password
+    
+- intent: navigate_account_info
+  examples: |
+    - account information
+    - show account information
+    - I want to see my account
+    - account details
+    - my account
+    - go to account information
+    - show me account information
+    - view account
+    - account section
+    - get my account info
+    - check my account
+    - access my account information
+    - take me to account information
+
+- intent: navigate_loan_portfolio
+  examples: |
+    - loan portfolio
+    - show loan portfolio
+    - my loans
+    - show me my loans
+    - I want to see my loans
+    - loan information
+    - go to loan portfolio
+    - check my loans
+    - loan section
+    - view my loan portfolio
+    - see loan portfolio
+    - access my loans
+    - take me to loan portfolio
+
+- intent: navigate_bank_management
+  examples: |
+    - bank management
+    - bank accounts
+    - manage my banks
+    - show bank management
+    - I want to manage my banks
+    - bank section
+    - go to bank management
+    - view my bank accounts
+    - check my banks
+    - banking information
+    - bank account management
+    - view banking options
+    - take me to bank management
+
+- intent: navigate_salary_options
+  examples: |
+    - salary options
+    - show salary options
+    - my salary
+    - salary information
+    - go to salary options
+    - view salary options
+    - salary section
+    - check my salary options
+    - salary details
+    - salary management
+    - show salary details
+    - about my salary
+    - take me to salary options
+
+- intent: navigate_update_salary
+  examples: |
+    - update salary
+    - change my salary
+    - edit salary
+    - modify my salary
+    - want to update salary
+    - need to change salary
+    - go to update salary
+    - update my salary information
+    - salary update
+    - I want to update my salary
+    - change salary information
+    - edit my salary details
+    - take me to update salary
+
+- intent: navigate_contact_options
+  examples: |
+    - contact options
+    - update contact
+    - change my contact
+    - edit contact details
+    - modify my contact
+    - want to update contact
+    - need to change contact
+    - go to contact options
+    - update my contact information
+    - contact update
+    - I want to update my contact
+    - change contact information
+    - edit my contact details
+    - take me to contact options
+
+- intent: navigate_bank_add
+  examples: |
+    - add bank
+    - add a bank account
+    - new bank account
+    - add new bank
+    - I want to add a bank
+    - connect a new bank
+    - register a bank
+    - add a bank
+    - create bank account
+    - add banking details
+    - new bank
+    - register bank account
+    - add bank details
+    - take me to add bank
+
+- intent: navigate_bank_update
+  examples: |
+    - update bank
+    - change bank details
+    - edit bank account
+    - modify bank information
+    - want to update bank
+    - need to change bank details
+    - go to update bank
+    - update my bank information
+    - bank update
+    - I want to update my bank
+    - change bank information
+    - edit my bank details
+    - take me to update bank
+    
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - greetings
+    - howdy
+    - hola
+    - namaste
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+    - talk to you later
+    - catch you later
+    - until next time
+    - bye bye
+    - cya
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+    - ok
+    - okay
+    - yep
+    - right
+    - sounds good
+    - that's right
+    - i agree
+    - that works
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - nah
+    - that's incorrect
+    - i disagree
+    - i don't agree
+    - that doesn't work
+
+- intent: thank
+  examples: |
+    - thanks
+    - thank you
+    - thanks a lot
+    - thank you very much
+    - appreciate it
+    - thanks for your help
+    - i appreciate your assistance
+    - that's helpful, thanks
+    - thank you for the information
+    
+- intent: help
+  examples: |
+    - help
+    - i need help
+    - can you help me
+    - please help
+    - what can you do
+    - what are your capabilities
+    - what can you assist me with
+    - how do you work
+    - how does this work
+    - guide me
+    - show me what you can do
+    - instructions please
+    - show options
+    - what are the options
+
+- intent: out_of_scope
+  examples: |
+    - Who is the president of the United States?
+    - What's the weather today?
+    - How do I make pizza?
+    - What's the capital of France?
+    - Tell me a joke
+    - I want to order food
+    - How old are you?
+    - What's your name?
+    - Can you book a flight for me?
+    - What time is it?
+    - How to change oil in my car?
+    - What's the best movie to watch?
+    - Tell me about the history of Rome
+    - How do I bake cookies?
+    - I need medical advice
+    - What's the meaning of life?
+
+- intent: show_main_menu
+  examples: |
+    - main menu
+    - show menu
+    - go to main menu
+    - return to menu
+    - show me the options
+    - what can i do
+    - go back to menu
+
+- intent: ACC_PROFILE
+  examples: |
+    - show my profile
+    - view my profile details
+    - what are my profile details
+    - display my profile
+    - i want to see my profile
+    - profile information
+    - tell me about my profile
+    - check my profile details
+    - account profile
+    - my profile details
+    - personal details
+    - show me my profile information
+    - user profile information
+    - what details do you have about me
+    - Can you show me my account information?
+    - I want to see my profile details.
+    - Show my account details.
+    - What does my profile look like?
+    - Give me my personal details.
+    - Display my profile information.
+    - I need to view my account data.
+    - Can you pull up my profile info?
+    - Show my personal account details.
+    - Let me see my user profile.
+    - What are the details of my account?
+    - Retrieve my profile information, please.
+    - I would like to check my account details.
+    - Fetch my profile details.
+    - I want to access my account information.
+    - How do I view my personal information?
+    - Display my user details.
+    - Can you get my account profile for me?
+    - I need to view the details of my profile.
+    - Could you show me my personal info?
+    
+- intent: ACC_KYC
+  examples: |
+    - show my KYC details
+    - view my KYC
+    - what are my KYC details
+    - display my KYC information
+    - i want to see my KYC information
+    - KYC status
+    - tell me about my KYC
+    - check my KYC details
+    - my KYC information
+    - show me my KYC data
+    - KYC documents
+    - KYC verification status
+    - show my identity documents
+    - my identification details
+    - aadhar and PAN information
+    - I was wondering if you could help me check my KYC details when you have a moment.
+    - Could you please fetch the details of my KYC information? I'd like to review them.
+    - When you get a chance, can you show me my KYC records? I'm trying to verify my information.
+    - I'd appreciate it if you could pull up my KYC details so I can cross-check them.
+    - I'm a bit curious about my current KYC status; could you display the details for me?
+    - Would you mind showing me my KYC information? I need to ensure everything is in order.
+    - Can you help me take a look at my KYC details? I'd like to confirm my records.
+    - It would be great if you could bring up my KYC details for me to review.
+    - Could you kindly retrieve my KYC details? I need to verify my identity information.
+    - I'd like to check on my KYC status—can you display the relevant details?
+    - Do you think you could get my KYC information for me? I want to have a look at it.
+    - I'm interested in reviewing my KYC records; please help me access those details.
+    - May I see my KYC details? I need to confirm that my information is correct.
+    - When possible, could you show me the details of my KYC? I want to make sure everything matches.
+    - I want to ensure my KYC details are up to date—can you pull them up for me?
+    - Please help me view my KYC details, as I need to review some personal information.
+    - Could you display my KYC information? I'd like to verify that my records are complete.
+    - I need to check my KYC details to confirm my data; can you fetch those for me?
+    - Would it be possible for you to show me my KYC records so I can review them?
+    - I'm looking to verify my identity details; could you please provide my KYC information?
+
+- intent: ACC_CIBIL
+  examples: |
+    - what is my CIBIL score
+    - show my CIBIL score
+    - view my credit score
+    - display my CIBIL
+    - check my credit rating
+    - tell me my CIBIL score
+    - what's my credit standing
+    - check my CIBIL
+    - show credit score
+    - view CIBIL details
+    - what is my creditworthiness
+    - show me my credit history
+    - CIBIL information
+    - tell me about my credit score
+    - is my CIBIL score good
+    - I was wondering if you could help me check on the details of my credit score sometime?
+    - When you have a moment, could you pull up my current credit score information for me?
+    - I'm interested in getting a quick update on my credit profile—do you have my CIBIL score handy?
+    - Could you please retrieve my credit score details? I'd like to see where I stand.
+    - At your convenience, would you mind showing me my current CIBIL score?
+    - I'd appreciate it if you could provide me with some information about my credit status, specifically my CIBIL score.
+    - Do you think you could check and display my credit score for me? I'm curious about my current rating.
+    - I was hoping to review my credit score details; can you help me with my CIBIL information?
+    - If it's not too much trouble, can you fetch my current CIBIL score so I can take a look at my credit details?
+    - Could you help me out by showing my credit profile details, particularly my CIBIL score?
+    - I'm trying to get an update on my credit status; might you show me my CIBIL score information?
+    - Would you be able to check my account and let me know what my CIBIL score is?
+    - I'm looking to verify my credit score—could you display my CIBIL score details for me?
+    - Could you please bring up my credit information, especially the details on my CIBIL score?
+    - I'd like to get some clarity on my credit status; can you pull up my CIBIL score?
+    - If possible, can you show me my current credit score, the one that reflects my CIBIL rating?
+    - I'm a bit curious about my financial standing—can you help me view my CIBIL score details?
+    - When you get a chance, could you provide me with an update on my credit profile, including my CIBIL score?
+    - I'd love to see my credit score details—would you mind retrieving my CIBIL information?
+    - Can you assist me by showing my current CIBIL score so I can understand my credit rating better?
+
+- intent: ACC_VIEW_SALARY
+  examples: |
+    - show my salary
+    - view my salary
+    - what is my salary
+    - display my salary information
+    - how much do I earn
+    - my income details
+    - tell me about my salary
+    - check my salary
+    - what salary details do you have
+    - tell me my income
+    - how much is my salary
+    - show salary details
+    - what's the salary registered in my account
+    - what is my monthly income
+    - Could you please help me get a quick overview of my earnings details? I'd like to see what's being credited to my account.
+    - I was wondering if you might check my pay information for me—just to ensure everything is in order.
+    - If you have a moment, would you mind retrieving some details regarding my income? I'm curious about my salary.
+    - I'd like to take a look at my salary information; could you fetch those details when you get a chance?
+    - At your convenience, please bring up my salary records so I can verify my income details.
+    - I'm interested in seeing an update on my earnings; can you help me access my salary details?
+    - Would it be possible for you to pull up the current details of my salary? I want to confirm my income information.
+    - Could you assist me by showing what my pay looks like? I'd like to review my salary information.
+    - I need to verify the details of my earnings—can you check and display my salary information for me?
+    - When you get a chance, please provide me with an update on my salary details; I'd appreciate a look at my income data.
+    - I'm trying to keep track of my financials; could you show me the specifics of my salary?
+    - Would you mind retrieving my salary details for me? I want to make sure my earnings are up to date.
+    - Could you check my income records and display the salary details? I need to cross-check my financial information.
+    - I'm a bit curious about my pay; could you help me see the details of my salary?
+    - If it's not too much trouble, can you pull up the information on my salary so I can review my earnings?
+    - I'd love to get an update on my salary—can you show me the relevant details about my income?
+    - Could you help me by providing a summary of my earnings details? I'm trying to confirm my salary information.
+    - I was hoping to review my pay details today. Can you fetch my salary information for me?
+    - When you have a moment, could you check and display my salary details? I'd like to verify my income.
+    - I'd appreciate it if you could pull up my salary information, as I need to review my current earnings.
+    
+- intent: ACC_UPDATE_SALARY
+  examples: |
+    - update my salary to [50000](salary_amount)
+    - change my salary to [75000](salary_amount)
+    - set my salary to [100000](salary_amount)
+    - modify salary to [60000](salary_amount)
+    - i got a raise to [85000](salary_amount)
+    - my new salary is [120000](salary_amount)
+    - my income is now [95000](salary_amount)
+    - please update my salary to [65000](salary_amount)
+    - change my income to [70000](salary_amount)
+    - update income amount to [80000](salary_amount)
+    - new salary is [55000](salary_amount)
+    - i'm now earning [110000](salary_amount)
+    - my salary changed to [72000](salary_amount)
+    - I was reviewing my financial info and realized my salary details might need a little adjustment. Could you help me with that?
+    - I think there have been some changes in my earnings recently. How do I go about updating my salary information?
+    - I'm not sure if my current salary data is accurate anymore. Can you guide me on how to update it?
+    - It seems like my salary details need a refresh. Could you show me where I can provide the new information?
+    - I recently had a change in my income, and I want to ensure my records reflect that. Can I update my salary details?
+    - I'm looking to revise my salary information because of recent changes. What steps should I take to update my record?
+    - There might be an error with my current salary info. Could you help me fill out the update form for my salary details?
+    - I need to make some corrections to my salary details. How can I go ahead and update them?
+    - My salary has changed, and I want my records to be accurate. Could you please help me update my salary details?
+    - I noticed that my salary information is a bit outdated. How do I update it with the latest figures?
+    - Would you mind assisting me in revising my salary details? I have some updates I'd like to submit.
+    - I think my salary details need a little tweaking. Can you guide me on how to fill in the updated information?
+    - I'm interested in modifying my salary data as there have been some recent changes. How can I update my records?
+    - I have some new salary information that needs to be recorded. Could you please show me how to update it?
+    - It appears that my salary details might be incorrect now. How do I submit the updated information?
+    - I want to update my salary details because of some changes in my income. What should I do next?
+    - Could you help me change my salary information? I need to fill out an update form with the new details.
+    - My current salary data is no longer accurate. Can you assist me in updating it with the latest figures?
+    - I have a few corrections to make regarding my salary information. Could you please direct me to the update process?
+    - I'm looking to update my salary records as my income has recently been revised. What are the next steps?
+
+- intent: ACC_CONTACT
+  examples: |
+    - update my phone number to [9876543210](phone_number)
+    - change my address to [123 Main St, Mumbai](address)
+    - update my contact details
+    - change my phone to [8765432109](phone_number)
+    - my new address is [456 Park Avenue, Delhi](address)
+    - update phone to [7654321098](phone_number) and address to [789 Lake View, Bangalore](address)
+    - change my number to [6543210987](phone_number)
+    - update my home address to [321 River Road, Chennai](address)
+    - please change my contact information
+    - update my phone and address
+    - modify my contact details
+    - update my personal address
+    - change my phone details
+    - need to update my contact info
+    - update my mobile number
+    - change address information
+    - I've recently changed my phone number and address; could you help me update my contact information?
+    - It seems my contact details are a bit outdated. How do I go about revising them?
+    - I'm in the process of updating my personal info—can you assist me with changing my phone and address?
+    - I need to refresh my contact information as my phone number and address have changed. What should I do?
+    - Could you guide me on how to update my contact details? I have a new phone number and address to share.
+    - I've got some new contact information and would like to update my profile. How can I do that?
+    - I believe my phone and address details need a quick update. Can you show me how to submit the new information?
+    - There have been some changes to my contact info lately. Could you help me fill out the update form for my phone and address?
+    - My contact details are no longer current. How can I provide the updated phone number and address?
+    - I want to make sure my records are up to date—can you help me update my phone and address information?
+    - I've recently moved and changed my phone number. Could you assist me in updating my contact details?
+    - I have some new contact information that needs to be reflected in my profile. How do I go about updating it?
+    - Can you help me with a quick update? I need to change my phone and address details.
+    - I just got a new phone and moved to a new place. How can I update my contact information accordingly?
+    - I noticed my contact details might be outdated; could you let me know how to update my phone number and address?
+    - I'm looking to update my personal contact information. What's the process for changing my phone and address details?
+    - Could you help me correct my contact info? I have a new phone number and a new address to register.
+    - I've got some updated details for my contact information. How do I fill in my new phone and address?
+    - I need to revise my contact information because my phone and address have changed recently. Can you guide me?
+    - Can you point me to where I can update my contact details? I have some changes in my phone and address.
+
+- intent: LOAN_ACTIVE_NUMBER
+  examples: |
+    - show my active loans
+    - show me my loans
+    - what are my loans
+    - view active loans
+    - how many active loans do I have
+    - display my current loans
+    - show ongoing loans
+    - list my active loans
+    - how many loans are active
+    - view my current loan accounts
+    - show me all my running loans
+    - what loans do i have
+    - display my loan accounts
+    - show open loans
+    - list all my loans
+    - all active loans in my account
+    - show my loan portfolio
+    - I'm trying to figure out how many active loans I currently have; could you pull up my loan details for me?
+    - Could you help me review my current loan status? I'm curious about the number and type of loans I have active right now.
+    - When you have a moment, can you show me a summary of my active loans including details like the loan type and disbursal date?
+    - I want to get a clear picture of my loan engagements. Could you display my active loans along with their types?
+    - Would you mind checking how many active loans are in my account? I'd like to see the details, like whether they're home or car loans.
+    - I need to verify my current loan status. Can you provide me with a breakdown of my active loans?
+    - Can you fetch the list of loans I currently have? I'm looking to know the count and type of each active loan.
+    - I'm interested in knowing my loan portfolio. Could you pull up the details of my active loans for me?
+    - Could you please show me the active loan details? I'm particularly interested in knowing how many loans I have and what types they are.
+    - I'd like to review my current loan commitments; can you display the active loans from my account?
+    - Please check my active loan status and provide the details, such as the number of loans and the type of each one.
+    - I'm trying to assess my financial commitments; can you let me know how many active loans I have and their respective types?
+    - When possible, could you show me my active loan details so I can see what types of loans are currently ongoing?
+    - I'd appreciate it if you could provide me with an update on my active loans, including a breakdown by type.
+    - I'm looking to review my current loan information; can you list out the active loans in my account?
+    - Could you help me get an overview of my active loans? I'm interested in the details like the type and disbursal dates.
+    - I want to see the status of my loan account. Can you show me how many active loans I have and what types they are?
+    - Would you mind retrieving my active loan details? I'm curious to know my current loan count and the categories they fall under.
+    - I need to confirm the details of my ongoing loans. Could you pull up the active loans information for me?
+    - Please display the active loans associated with my account so I can review both the number and the type of loans I have.
+
+- intent: LOAN_ACTIVE_DETAILS
+  examples: |
+    - show loan details for loan [1234](loan_id)
+    - view details of loan [5678](loan_id)
+    - tell me about loan [9012](loan_id)
+    - display information for loan [3456](loan_id)
+    - check details of loan [7890](loan_id)
+    - what are the details of loan [2345](loan_id)
+    - loan information for [6789](loan_id)
+    - tell me more about loan [1234](loan_id)
+    - details about my loan
+    - view selected loan details
+    - show information about this loan
+    - loan specifics please
+    - tell me more about this loan
+    - get loan details
+    - I was looking at my active loans and found one I'm interested in. Could you show me all the details about the one I picked?
+    - Can you help me get a detailed view of the active loan I recently selected? I need more information about it.
+    - I'd like to see a complete breakdown of the active loan I chose. Can you display its specifics?
+    - When you have a moment, could you pull up the detailed information for the active loan I indicated earlier?
+    - I'm trying to understand the finer details of one of my active loans. Could you provide the full details of the loan I selected?
+    - Could you please fetch the comprehensive details for the active loan I picked from my list?
+    - I need to review the complete details for the active loan I selected. Would you mind showing me everything about it?
+    - I'm curious about the specifics of the active loan I chose. Can you show me all the related details?
+    - Please retrieve the full breakdown for the active loan I just selected; I'd like to know more about its status and terms.
+    - I want to check out all the details of the loan I picked from my active loans. Could you get that information for me?
+    - Would you help me by providing a detailed view of the active loan I selected? I need the complete data on it.
+    - I'd appreciate it if you could display the full details for the active loan I recently indicated.
+    - I'm interested in getting a closer look at the active loan I chose. Can you fetch all the specific information related to it?
+    - Could you show me a detailed summary of the active loan that I selected? I'd like to see its status, type, and other key info.
+    - I was wondering if you could pull up the detailed information for the active loan I selected earlier. I need to review its specifics.
+    - May I have a detailed rundown of the active loan I picked? I'm looking to understand all its aspects.
+    - When possible, can you present a comprehensive view of the active loan I chose, including its loan ID and terms?
+    - I need more in-depth details about the active loan I selected. Can you help me view all of its particulars?
+    - Could you assist me by showing the detailed information for the active loan I recently selected from my list?
+    - I'm interested in learning more about the active loan I picked. Could you display its complete details for me?
+
+- intent: LOAN_EMI_DETAILS
+  examples: |
+    - show EMI schedule for loan [1234](loan_id)
+    - view EMI details of loan [5678](loan_id)
+    - tell me about EMIs for loan [9012](loan_id)
+    - display EMI information for loan [3456](loan_id)
+    - check EMI schedule of loan [7890](loan_id)
+    - what are the EMI details of loan [2345](loan_id)
+    - EMI information for [6789](loan_id)
+    - show my EMI payments
+    - view EMI schedule
+    - tell me about my EMIs
+    - display installment details
+    - check my payment schedule
+    - show my loan payments
+    - repayment schedule
+    - monthly installment details
+    - I was reviewing my loan details earlier, and I'm curious if you could show me the installment schedule for the active loan I selected?
+    - When you have a moment, could you provide me with the payment schedule details for the active loan I'm interested in?
+    - I'd like to take a look at the EMI details for the loan I selected. Can you help me check the pending installments?
+    - Could you please fetch the EMI schedule for the active loan I have? I need to see the pending amounts and due dates.
+    - I'm trying to get a clearer picture of my repayment plan. Can you show me the EMI details for my selected loan?
+    - Would you mind displaying the EMI schedule for the active loan I chose? I need to review the due dates and amounts.
+    - I need to check on the installment status for my selected loan. Could you pull up the EMI schedule for me?
+    - Could you help me view the details of the EMI plan for the active loan I'm currently tracking?
+    - I'm interested in seeing how my EMI payments are scheduled for the loan I selected. Can you show me the details?
+    - Can you please provide me with the installment breakdown for my active loan? I'd like to review the pending EMI amounts.
+    - When possible, could you display the EMI schedule for the loan I selected so I can see the due dates and amounts?
+    - I'm trying to get a handle on my repayment plan. Can you help me check the EMI details for the active loan I picked?
+    - Could you pull up the installment schedule for my selected loan? I need to know the pending payment details.
+    - I'd appreciate it if you could show me the EMI schedule for the active loan I recently selected, including pending payments.
+    - Would you assist me by retrieving the EMI details for my chosen loan? I need to see the pending installments.
+    - I'm interested in reviewing my loan's repayment plan. Can you provide the EMI schedule for the active loan I selected?
+    - Could you help me with a detailed view of my EMI schedule for the active loan? I'd like to see the pending dues.
+    - I need to check my EMI payment plan for the loan I selected. Could you show me the details of pending payments?
+    - If it's not too much trouble, can you fetch the EMI details for my active loan so I can see what payments are due?
+    - I'd like to get an update on my repayment plan. Could you display the EMI schedule for the active loan I chose?
+
+- intent: LOAN_STATUS
+  examples: |
+    - what's the status of my loan applications
+    - show loan application status
+    - view status of my loan applications
+    - tell me about my loan applications
+    - check loan application status
+    - display loan status
+    - what happened to my loan application
+    - status of pending loans
+    - view loan request status
+    - show loan processing status
+    - check my loan approval status
+    - tell me if my loan is approved
+    - have my loans been processed
+    - loan application progress
+    - loan approval status
+    - Can you check my loan status for me?
+    - What's the update on my loan application?
+    - Has my loan been approved yet?
+    - Is my loan still under review or has it been cleared?
+    - Can you tell me where my loan application stands right now?
+    - Any updates on my loan request?
+    - Has my loan been processed, or is it still pending?
+    - I would like to inquire about the status of my loan application.
+    - Could you provide me with an update on my loan processing?
+    - May I know the current stage of my loan request?
+    - Please check and update me on the progress of my loan application.
+    - Can you verify whether my loan request has been processed successfully?
+    - I need information regarding the status of my loan approval.
+    - Kindly confirm if my loan has been sanctioned or is still pending.
+    - What is the latest underwriting status of my loan?
+    - Has my loan passed the final approval stage?
+    - Please check if my loan has been sanctioned by the bank.
+    - Has my loan disbursement been successfully processed?
+    - Could you provide details on whether my loan is pending, approved, or disbursed?
+    - Is there any pending verification or approval step for my loan?
+
+- intent: bank_query
+  examples: |
+    - bank
+    - banking
+    - bank account
+    - my bank
+    - my banks
+    - bank details
+    - bank information
+    - banking information
+    - banking details
+    - show me my banks
+    - list my banks
+    - view my banks
+    - check my banks
+    - what are my banks
+    - bank account details
+    - show my bank accounts
+    - i want to see my bank accounts
+    - i need to check my bank accounts
+    - can you show me my bank accounts
+    - tell me about my bank accounts
+    - tell me about my bank
+    - what banks do i have
+    - which banks are linked to my account
+    - give me information about my bank accounts
+    - show me my banking information
+
+- intent: BANK_LINKED_NUMBER
+  examples: |
+    - show my linked bank accounts
+    - view my bank accounts
+    - how many bank accounts do I have
+    - display my bank accounts
+    - show connected banks
+    - list my bank accounts
+    - what banks are linked
+    - view my registered banks
+    - show me all my bank accounts
+    - list all my bank accounts
+    - display my linked banks
+    - show connected bank accounts
+    - view all my banks
+    - show my bank information
+    - list registered bank accounts
+    - Can you show me all the bank accounts linked to my profile?
+    - I want to check the banks linked to my account.
+    - How many bank accounts do I have linked to my profile?
+    - Please provide the list of banks associated with my profile.
+    - What are the bank accounts currently linked to my profile?
+    - Can you show me a summary of my linked bank accounts?
+    - Which banks have been added under my profile?
+    - I want to verify the list of banks linked to my account.
+    - Could you fetch the names of all my linked banks?
+    - How can I check which bank accounts are associated with my profile?
+    - What are the linked bank accounts under my name?
+    - Show me all the bank accounts connected to my profile.
+    - Could you list out the banks associated with my profile?
+    - I want to confirm the number of bank accounts linked to me.
+    - What banks do I have linked to my user profile?
+    - Please display the details of all my linked bank accounts.
+    - Give me the names of the banks linked to my profile.
+    - Can you fetch and show my linked bank accounts?
+    - I need a list of my registered bank accounts.
+    - Which banks have been added to my account records?
+
+- intent: BANK_LINKED_DETAILS
+  examples: |
+    - show details of bank [1234](bank_id)
+    - view information of bank [5678](bank_id)
+    - tell me about bank [9012](bank_id)
+    - display details for bank [3456](bank_id)
+    - check details of bank [7890](bank_id)
+    - what are the details of bank [2345](bank_id)
+    - bank information for [6789](bank_id)
+    - show my bank account details
+    - view selected bank information
+    - tell me more about this bank account
+    - bank details please
+    - account information for this bank
+    - view this bank's details
+    - display bank account info
+    - Can you show me the details of my selected bank account?
+    - I want to see the complete details of my chosen bank account.
+    - Please provide the account details for the bank I selected.
+    - Show me the IFSC code and type of my selected bank account.
+    - What is the account number of my selected bank account?
+    - Can you fetch the details of my linked bank account?
+    - I need the account holder name and type for my selected bank.
+    - Show me the bank details of my chosen account.
+    - What is the IFSC code of my selected bank account?
+    - I want to check the details of my specific linked bank account.
+    - Can you display the information of the bank account I chose?
+    - What is my account type and IFSC code for the selected bank?
+    - I need more information about the bank account I picked.
+    - Please show me the specifics of my selected bank account.
+    - Can you list the bank name and account number of the account I selected?
+    - Fetch the bank details of the account I just chose.
+    - What are the details of the bank account linked under my name?
+    - I want to verify the bank details of my selected account.
+    - Could you provide the full details of my chosen bank?
+    - Please show the complete account details for my selected bank.
+
+- intent: BANK_UPDATE
+  examples: |
+    - update bank account [1234](bank_id)
+    - change details of bank [5678](bank_id)
+    - modify bank [9012](bank_id)
+    - update information for bank [3456](bank_id)
+    - edit bank account [7890](bank_id)
+    - change bank account type
+    - update account holder name
+    - modify bank account details
+    - edit bank information
+    - update my bank account
+    - change my bank details
+    - modify my bank information
+    - edit registered bank
+    - update bank details
+    - I need to update my bank name in my account details.
+    - Please change my bank name to a different one.
+    - Can you modify my bank account type?
+    - I want to update my account holder name.
+    - How do I change my registered bank name?
+    - Can you help me update my savings account to a current account?
+    - I would like to correct my account holder name.
+    - My bank name is incorrect—please update it.
+    - I want to modify the type of my bank account.
+    - Please update the account holder name for my selected bank account.
+    - I wish to change my account type from current to savings.
+    - Can you assist me in correcting my bank name?
+    - I need to update my account details—specifically, the account type.
+    - Please edit my bank details, particularly the account holder name.
+    - I entered the wrong bank name—can you change it?
+    - My account holder name has changed—please update it in my profile.
+    - How do I update the name of the bank in my records?
+    - Modify my bank details, ensuring the account name is correct.
+    - I want to update the registered name on my bank account.
+    - Help me change my account type from savings to current.
+
+- intent: BANK_ADD
+  examples: |
+    - add a new bank account
+    - register a new bank
+    - link a bank account
+    - add bank details
+    - connect a new bank
+    - register my bank account
+    - add another bank
+    - include new bank account
+    - register additional bank
+    - create new bank link
+    - add one more bank
+    - register bank account
+    - link new banking details
+    - add new account
+    - connect another bank account
+    - I want to add a new bank account to my profile.
+    - How can I link my bank account to this service?
+    - Please register my bank details for transactions.
+    - I need to add my savings account to my profile.
+    - Where can I enter my bank details for linking?
+    - I'd like to associate a new bank account with my profile.
+    - Help me connect my bank account for payments.
+    - Can I attach my bank account for loan disbursements?
+    - How do I provide my bank account info for transactions?
+    - I want to store my bank details for future use.
+    - Let me input my bank information to link an account.
+    - I need to submit my account number and IFSC for linking.
+    - Guide me through adding a bank account to my records.
+    - Where can I add my bank details for verification?
+    - How do I register my account for fund transfers?
+    - I want to provide my bank details for linking.
+    - Can I add multiple bank accounts?
+    - I'd like to save my bank credentials in the system.
+    - Let me add my bank name, account number, and IFSC.
+    - How can I securely register my bank information here?

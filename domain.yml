@@ -1,0 +1,725 @@
+# version: "3.1"
+
+# intents:
+#   - greet
+#   - goodbye
+#   - affirm
+#   - deny
+#   - out_of_scope
+#   - thank
+#   - help
+#   - bank_query
+#   - ACC_PROFILE
+#   - ACC_KYC
+#   - ACC_VIEW_SALARY
+#   - ACC_UPDATE_SALARY
+#   - ACC_CIBIL
+#   - ACC_CONTACT
+#   - LOAN_ACTIVE_NUMBER
+#   - LOAN_ACTIVE_DETAILS
+#   - LOAN_EMI_DETAILS
+#   - LOAN_STATUS
+#   - BANK_ADD
+#   - BANK_UPDATE
+#   - BANK_LINKED_NUMBER
+#   - BANK_LINKED_DETAILS
+#   - navigate_account_info
+#   - navigate_loan_portfolio
+#   - navigate_bank_management
+#   - show_main_menu
+#   - navigate_salary_options
+#   - navigate_update_salary
+#   - navigate_contact_options
+#   - navigate_bank_add
+#   - navigate_bank_update
+
+# entities:
+#   - salary_amount
+#   - phone_number
+#   - address
+#   - loan_id
+#   - bank_id
+#   - account_number
+#   - account_holder_name
+#   - ifsc_code
+#   - bank_name
+#   - bank_account_type
+
+# slots:
+#   user_id:
+#     type: text
+#     influence_conversation: true
+#     mappings:
+#       - type: custom
+#   context_intent:
+#     type: text
+#     influence_conversation: true
+#     mappings:
+#       - type: custom
+#   active_loan_id:
+#     type: text
+#     influence_conversation: true
+#     mappings:
+#       - type: from_entity
+#         entity: loan_id
+#   active_bank_id:
+#     type: text
+#     influence_conversation: true
+#     mappings:
+#       - type: from_entity
+#         entity: bank_id
+#   salary_amount:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: salary_amount
+#   phone_number:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: phone_number
+#   address:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: address
+#   account_number:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: account_number
+#   account_holder_name:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: account_holder_name
+#   ifsc_code:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: ifsc_code
+#   bank_name:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: bank_name
+#   bank_account_type:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: bank_account_type
+#   requested_form_info:
+#     type: text
+#     influence_conversation: true
+#     mappings:
+#       - type: custom
+#   feedback_received:
+#     type: bool
+#     influence_conversation: false
+#     mappings:
+#       - type: custom
+
+# responses:
+#   utter_greet:
+#     - text: "Hello! I'm your loan assistant. What can I help you with today?"
+#       buttons:
+#         - title: "Account Information"
+#           payload: "/navigate_account_info"
+#         - title: "Loan Portfolio"
+#           payload: "/navigate_loan_portfolio"
+#         - title: "Bank Account Management"
+#           payload: "/navigate_bank_management"
+
+#   utter_main_menu:
+#     - text: "What would you like to do next?"
+#       buttons:
+#         - title: "Account Information"
+#           payload: "/navigate_account_info"
+#         - title: "Loan Portfolio"
+#           payload: "/navigate_loan_portfolio"
+#         - title: "Bank Account Management"
+#           payload: "/navigate_bank_management"
+
+#   utter_account_info_options:
+#     - text: "Please select from the below options:"
+#       buttons:
+#         - title: "View profile details"
+#           payload: "/ACC_PROFILE"
+#         - title: "View KYC details"
+#           payload: "/ACC_KYC"
+#         - title: "View CIBIL score"
+#           payload: "/ACC_CIBIL"
+#         - title: "Salary details"
+#           payload: "/navigate_salary_options"
+#         - title: "Update contact details"
+#           payload: "/navigate_contact_options"
+
+#   utter_salary_options:
+#     - text: "What would you like to do with your salary information?"
+#       buttons:
+#         - title: "View my salary"
+#           payload: "/ACC_VIEW_SALARY"
+#         - title: "Update my salary"
+#           payload: "/navigate_update_salary"
+
+#   utter_ask_salary_amount:
+#     - text: "Please enter your updated salary amount:"
+
+#   utter_contact_options:
+#     - text: "Please provide your updated contact details:"
+#       buttons:
+#         - title: "Update contact info"
+#           payload: "/ACC_CONTACT"
+
+#   utter_ask_contact_details:
+#     - text: "Please provide your updated phone number and/or address:"
+
+#   utter_loan_portfolio_options:
+#     - text: "Please select from the below options:"
+#       buttons:
+#         - title: "View active loans"
+#           payload: "/LOAN_ACTIVE_NUMBER"
+#         - title: "View loan application status"
+#           payload: "/LOAN_STATUS"
+
+#   utter_active_loan_options:
+#     - text: "What would you like to know about your selected loan?"
+#       buttons:
+#         - title: "View loan details"
+#           payload: "/LOAN_ACTIVE_DETAILS"
+#         - title: "View EMI schedule"
+#           payload: "/LOAN_EMI_DETAILS"
+
+#   utter_bank_options:
+#     - text: "I can help you with your bank accounts. What would you like to do?"
+#       buttons:
+#         - title: "View linked bank accounts"
+#           payload: "/BANK_LINKED_NUMBER"
+#         - title: "Add new bank account"
+#           payload: "/navigate_bank_add"
+
+#   utter_bank_management_options:
+#     - text: "Please select from the below options:"
+#       buttons:
+#         - title: "View linked bank accounts"
+#           payload: "/BANK_LINKED_NUMBER"
+#         - title: "Add new bank account"
+#           payload: "/navigate_bank_add"
+
+#   utter_linked_bank_options:
+#     - text: "What would you like to do with the selected bank account?"
+#       buttons:
+#         - title: "View bank details"
+#           payload: "/BANK_LINKED_DETAILS"
+#         - title: "Update bank details"
+#           payload: "/navigate_bank_update"
+
+#   utter_ask_bank_add_details:
+#     - text: "Please provide the following details for your new bank account:\n- Account Number\n- Account Holder Name\n- IFSC Code\n- Bank Name\n- Bank Account Type (SAVINGS/CURRENT)"
+
+#   utter_ask_bank_update_details:
+#     - text: "Please provide the updated details for your bank account:\n- Account Holder Name\n- Bank Account Type (SAVINGS/CURRENT)"
+
+#   utter_goodbye:
+#     - text: "Thank you for using our loan assistant. Have a great day!"
+
+#   utter_feedback:
+#     - text: "Was this response helpful to you?"
+#       buttons:
+#         - title: "👍 Yes"
+#           payload: "/affirm"
+#         - title: "👎 No"
+#           payload: "/deny"
+
+#   utter_fallback:
+#     - text: "I'm sorry, but I don't understand that. As a loan assistance chatbot, I can help you with your account details, loan information, and bank account management. Would you like to see the main menu?"
+#       buttons:
+#         - title: "Show main menu"
+#           payload: "/show_main_menu"
+#     - text: "I don't quite understand what you're asking. I'm your loan assistance chatbot and can help with account information, loan details, and bank accounts. How can I help you with your finances today?"
+#       buttons:
+#         - title: "Show main menu"
+#           payload: "/show_main_menu"
+
+#   utter_out_of_scope:
+#     - text: "I'm your loan assistance chatbot, designed to help with your financial matters. I'm not able to help with that request. Instead, I can help you with your account details, loans, or bank information. What would you like to know about your finances?"
+#       buttons:
+#         - title: "Show main menu"
+#           payload: "/show_main_menu"
+#     - text: "That's outside the scope of what I can help with. Did you know that maintaining a good CIBIL score above 750 can help you get better loan interest rates? How about we get back to your financial portfolio?"
+#       buttons:
+#         - title: "Show main menu"
+#           payload: "/show_main_menu"
+
+#   utter_thank:
+#     - text: "You're welcome! Is there anything else I can help you with regarding your loans or account?"
+#       buttons:
+#         - title: "Show main menu"
+#           payload: "/show_main_menu"
+
+#   utter_help:
+#     - text: "I'm your loan assistant chatbot. I can help you with:\n- Viewing your account details\n- Checking your loan status\n- Managing your bank accounts\n\nWhat would you like help with today?"
+#       buttons:
+#         - title: "Account Information"
+#           payload: "/navigate_account_info"
+#         - title: "Loan Portfolio"
+#           payload: "/navigate_loan_portfolio"
+#         - title: "Bank Account Management"
+#           payload: "/navigate_bank_management"
+
+# actions:
+#   - action_fetch_profile
+#   - action_fetch_kyc
+#   - action_view_salary
+#   - action_update_salary
+#   - action_fetch_cibil
+#   - action_update_contact
+#   - action_fetch_active_loans
+#   - action_fetch_active_loan_details
+#   - action_fetch_emi_details
+#   - action_fetch_loan_status
+#   - action_handle_bank_query
+#   - action_utter_feedback
+#   - action_process_feedback
+#   - action_show_main_menu
+#   - action_reset_all_forms
+#   - validate_update_salary_form
+#   - validate_update_contact_form
+#   - validate_add_bank_form
+#   - action_add_bank
+#   - action_update_bank
+#   - action_fetch_linked_banks
+#   - action_fetch_bank_details
+#   - action_set_context
+#   - action_reset_slots
+#   - action_log_mo_engage
+
+# forms:
+#   update_salary_form:
+#     required_slots:
+#       - salary_amount
+  
+#   update_contact_form:
+#     required_slots:
+#       - phone_number
+#       - address
+  
+#   add_bank_form:
+#     required_slots:
+#       - account_number
+#       - account_holder_name
+#       - ifsc_code
+#       - bank_name
+#       - bank_account_type
+  
+#   update_bank_form:
+#     required_slots:
+#       - account_holder_name
+#       - bank_account_type
+
+# session_config:
+#   session_expiration_time: 60  # minutes
+#   carry_over_slots_to_new_session: true
+
+# domain.yml
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - out_of_scope
+  - thank
+  - help
+  - bank_query
+  # - login
+  - ACC_PROFILE
+  - ACC_KYC
+  - ACC_VIEW_SALARY
+  - ACC_UPDATE_SALARY
+  - ACC_CIBIL
+  - ACC_CONTACT
+  - LOAN_ACTIVE_NUMBER
+  - LOAN_ACTIVE_DETAILS
+  - LOAN_EMI_DETAILS
+  - LOAN_STATUS
+  - BANK_ADD
+  - BANK_UPDATE
+  - BANK_LINKED_NUMBER
+  - BANK_LINKED_DETAILS
+  - navigate_account_info
+  - navigate_loan_portfolio
+  - navigate_bank_management
+  - show_main_menu
+  - navigate_salary_options
+  - navigate_update_salary
+  - navigate_contact_options
+  - navigate_bank_add
+  - navigate_bank_update
+
+entities:
+  - salary_amount
+  - phone_number
+  - address
+  - loan_id
+  - bank_id
+  - account_number
+  - account_holder_name
+  - ifsc_code
+  - bank_name
+  - bank_account_type
+  # - email
+  # - password
+
+slots:
+  user_id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  # email:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #     - type: from_entity
+  #       entity: email
+  # password:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #     - type: from_entity
+  #       entity: password
+  is_authenticated:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: custom
+  context_intent:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  active_loan_id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: loan_id
+  active_bank_id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: bank_id
+  salary_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: salary_amount
+  phone_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  address:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: address
+  account_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: account_number
+  account_holder_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: account_holder_name
+  ifsc_code:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: ifsc_code
+  bank_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: bank_name
+  bank_account_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: bank_account_type
+  requested_form_info:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+    - custom:
+        message: "Hello! I'm your loan assistant. How can I help you today?"
+        options:
+          - title: "Account Information"
+            payload: "/navigate_account_info"
+          - title: "Loan Portfolio"
+            payload: "/navigate_loan_portfolio"
+          - title: "Bank Account Management"
+            payload: "/navigate_bank_management"
+
+  # utter_ask_login:
+  #   - custom:
+  #       message: "Please log in to access the system."
+  #       auth_required: true
+
+  # utter_ask_email:
+  #   - custom:
+  #       message: "Please enter your email address:"
+  #       request_slot: "email"
+
+  # utter_ask_password:
+  #   - custom:
+  #       message: "Please enter your password:"
+  #       request_slot: "password"
+
+  # utter_login_success:
+  #   - custom:
+  #       message: "Login successful! What would you like to do?"
+  #       auth_success: true
+  #       options:
+  #         - title: "Account Information"
+  #           payload: "/navigate_account_info"
+  #         - title: "Loan Portfolio"
+  #           payload: "/navigate_loan_portfolio"
+  #         - title: "Bank Account Management"
+  #           payload: "/navigate_bank_management"
+
+  # utter_login_failed:
+  #   - custom:
+  #       message: "Login failed. Please check your credentials and try again."
+  #       auth_failed: true
+  
+  utter_main_menu:
+    - custom:
+        message: "What would you like to do next?"
+        options:
+          - title: "Account Information"
+            payload: "/navigate_account_info"
+          - title: "Loan Portfolio"
+            payload: "/navigate_loan_portfolio"
+          - title: "Bank Account Management"
+            payload: "/navigate_bank_management"
+
+  utter_account_info_options:
+    - custom:
+        message: "Please select from the below options:"
+        options:
+          - title: "View profile details"
+            payload: "/ACC_PROFILE"
+          - title: "View KYC details"
+            payload: "/ACC_KYC"
+          - title: "View CIBIL score"
+            payload: "/ACC_CIBIL"
+          - title: "Salary details"
+            payload: "/navigate_salary_options"
+          - title: "Update contact details"
+            payload: "/navigate_contact_options"
+
+  utter_salary_options:
+    - custom:
+        message: "What would you like to do with your salary information?"
+        options:
+          - title: "View my salary"
+            payload: "/ACC_VIEW_SALARY"
+          - title: "Update my salary"
+            payload: "/navigate_update_salary"
+
+  utter_ask_salary_amount:
+    - custom:
+        message: "Please enter your updated salary amount:"
+        request_slot: "salary_amount"
+
+  utter_contact_options:
+    - custom:
+        message: "Please provide your updated contact details:"
+        options:
+          - title: "Update contact info"
+            payload: "/ACC_CONTACT"
+
+  utter_ask_contact_details:
+    - custom:
+        message: "Please provide your updated phone number and/or address:"
+        request_slots: ["phone_number", "address"]
+
+  utter_loan_portfolio_options:
+    - custom:
+        message: "Please select from the below options:"
+        options:
+          - title: "View active loans"
+            payload: "/LOAN_ACTIVE_NUMBER"
+          - title: "View loan application status"
+            payload: "/LOAN_STATUS"
+
+  utter_active_loan_options:
+    - custom:
+        message: "What would you like to know about your selected loan?"
+        options:
+          - title: "View loan details"
+            payload: "/LOAN_ACTIVE_DETAILS"
+          - title: "View EMI schedule"
+            payload: "/LOAN_EMI_DETAILS"
+
+  utter_bank_options:
+    - custom:
+        message: "I can help you with your bank accounts. What would you like to do?"
+        options:
+          - title: "View linked bank accounts"
+            payload: "/BANK_LINKED_NUMBER"
+          - title: "Add new bank account"
+            payload: "/navigate_bank_add"
+
+  utter_bank_management_options:
+    - custom:
+        message: "Please select from the below options:"
+        options:
+          - title: "View linked bank accounts"
+            payload: "/BANK_LINKED_NUMBER"
+          - title: "Add new bank account"
+            payload: "/navigate_bank_add"
+
+  utter_linked_bank_options:
+    - custom:
+        message: "What would you like to do with the selected bank account?"
+        options:
+          - title: "View bank details"
+            payload: "/BANK_LINKED_DETAILS"
+          - title: "Update bank details"
+            payload: "/navigate_bank_update"
+
+  utter_ask_bank_add_details:
+    - custom:
+        message: "Please provide the following details for your new bank account:"
+        request_slots: ["account_number", "account_holder_name", "ifsc_code", "bank_name", "bank_account_type"]
+        hint: "Bank Account Type must be either SAVINGS or CURRENT"
+
+  utter_ask_bank_update_details:
+    - custom:
+        message: "Please provide the updated details for your bank account:"
+        request_slots: ["account_holder_name", "bank_account_type"]
+        hint: "Bank Account Type must be either SAVINGS or CURRENT"
+
+  utter_goodbye:
+    - custom:
+        message: "Thank you for using our loan assistant. Have a great day!"
+
+  utter_fallback:
+    - custom:
+        message: "I'm sorry, but I don't understand that. As a loan assistance chatbot, I can help you with your account details, loan information, and bank account management. Would you like to see the main menu?"
+        options:
+          - title: "Show main menu"
+            payload: "/show_main_menu"
+
+  utter_out_of_scope:
+    - custom:
+        message: "I'm your loan assistance chatbot, designed to help with your financial matters. I'm not able to help with that request. Instead, I can help you with your account details, loans, or bank information. What would you like to know about your finances?"
+        options:
+          - title: "Show main menu"
+            payload: "/show_main_menu"
+
+  utter_thank:
+    - custom:
+        message: "You're welcome! Is there anything else I can help you with regarding your loans or account?"
+        options:
+          - title: "Show main menu"
+            payload: "/show_main_menu"
+
+  utter_help:
+    - custom:
+        message: "I'm your loan assistant chatbot. I can help you with:\n- Viewing your account details\n- Checking your loan status\n- Managing your bank accounts\n\nWhat would you like help with today?"
+        options:
+          - title: "Account Information"
+            payload: "/navigate_account_info"
+          - title: "Loan Portfolio"
+            payload: "/navigate_loan_portfolio"
+          - title: "Bank Account Management"
+            payload: "/navigate_bank_management"
+
+actions:
+  - action_check_authenticated
+  # - action_login
+  - action_direct_login
+  - action_fetch_profile
+  - action_fetch_kyc
+  - action_view_salary
+  - action_update_salary
+  - action_fetch_cibil
+  - action_update_contact
+  - action_fetch_active_loans
+  - action_fetch_active_loan_details
+  - action_fetch_emi_details
+  - action_fetch_loan_status
+  - action_handle_bank_query
+  - action_show_main_menu
+  - action_reset_all_forms
+  # - validate_login_form
+  - validate_update_salary_form
+  - validate_update_contact_form
+  - validate_add_bank_form
+  - validate_update_bank_form
+  - action_add_bank
+  - action_update_bank
+  - action_fetch_linked_banks
+  - action_fetch_bank_details
+  - action_set_context
+  - action_reset_slots
+
+forms:
+  # login_form:
+  #   required_slots:
+  #     - email
+  #     - password
+
+  update_salary_form:
+    required_slots:
+      - salary_amount
+  
+  update_contact_form:
+    required_slots:
+      - phone_number
+      - address
+  
+  add_bank_form:
+    required_slots:
+      - account_number
+      - account_holder_name
+      - ifsc_code
+      - bank_name
+      - bank_account_type
+  
+  update_bank_form:
+    required_slots:
+      - account_holder_name
+      - bank_account_type
+
+session_config:
+  session_expiration_time: 60  # minutes
+  carry_over_slots_to_new_session: true
